@@ -14,6 +14,21 @@ public class Player : MonoBehaviour
     private int _currentHealh;
     private Animator _animator;
 
+    public int Money { get; private set; }
+
+    public void ApplyDamage(int damage)
+    {
+        _currentHealh -= damage;
+
+        if (_currentHealh <= 0)
+            Destroy(gameObject);
+    }
+
+    private void OnEnemyDied(int reward)
+    {
+        Money += reward;
+    }
+
     private void Start()
     {
         _currentWeapon = _weapons[0];
