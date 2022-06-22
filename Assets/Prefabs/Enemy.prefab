@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2818111444709284898}
-  _transitionRange: 2
+  _transitionRange: 1.5
   _rangeSpread: 0.5
 --- !u!114 &2818111444709284898
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 2818111444709284900}
-  _damage: 1
+  _damage: 10
   _delay: 2
 --- !u!114 &2818111444709284899
 MonoBehaviour:
