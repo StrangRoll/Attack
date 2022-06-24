@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     private int _killed;
 
     public event UnityAction AllEnemiesKilled;
+    public event UnityAction<int, int> EnemyDied;
 
     public void NextWave()
     {
@@ -54,6 +55,7 @@ public class Spawner : MonoBehaviour
     {
         _currentWave = _waves[index];
         _currentWaveIndex = index;
+        EnemyDied?.Invoke(0, 1);
     }
 
     private void InstantiateEnemy()
@@ -68,6 +70,7 @@ public class Spawner : MonoBehaviour
         enemy.Dying -= OnEnemyDying;
         _player.AddMoney(enemy.Reward);
         _killed++;
+        EnemyDied?.Invoke(_killed, _currentWave.Count);
 
         if (_killed >= _currentWave.Count)
             AllEnemiesKilled?.Invoke();
